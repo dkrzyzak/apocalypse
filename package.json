@@ -1,0 +1,11 @@
+{
+  "name": "apocalypse-monorepo",
+  "version": "0.0.1",
+  "description": "",
+  "scripts": {
+    "test": "exit 1"
+  },
+  "keywords": [],
+  "author": "Daniel Krzyzak",
+  "license": "ISC"
+}
