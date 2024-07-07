@@ -1,12 +1,32 @@
-interface ButtonProps {
-	children: React.ReactNode;
-	background: string;
-}
+import { buttonColorStyles, ButtonProps, buttonSizeStyles } from './constants';
+import { twMerge } from 'tailwind-merge';
 
-function Button({ children, background }: ButtonProps) {
+function Button({
+	children,
+	color = 'primary',
+	variant = 'fill',
+	fullWidth = false,
+	isDisabled = false,
+	isLoading = false,
+	loaderPlacement = 'right',
+	leftSection,
+	rightSection,
+	size = 'md',
+}: ButtonProps) {
 	return (
-		<button style={{ background }} className='p-4 rounded-md bg-orange-700 text-white'>
-			{children}
+		<button
+			disabled={isDisabled}
+			aria-disabled={isDisabled}
+			className={twMerge(
+				'rounded-md transition-ct duration-200 flex',
+				fullWidth && 'w-full active:scale-[99%]',
+				!fullWidth && 'active:scale-105',
+				isDisabled && 'opacity-50 cursor-default',
+				buttonSizeStyles[size],
+				buttonColorStyles[color][variant]
+			)}
+		>
+			<span className='inline-flex items-center'>{children}</span>
 		</button>
 	);
 }
