@@ -41,6 +41,8 @@ export const buttonSizeStyles: Record<Size, string> = {
 	xl: 'h-16 px-6 text-3xl',
 };
 
+export const buttonDisabledStyles = 'disabled:opacity-50 disabled:cursor-default disabled:active:scale-100';
+
 export const buttonColorStyles: Record<ButtonPalette, Record<ButtonVariant, string>> = {
 	primary: {
 		fill: 'bg-blue-600 text-white hover:bg-blue-700',
