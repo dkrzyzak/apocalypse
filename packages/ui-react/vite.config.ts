@@ -8,7 +8,7 @@ export default defineConfig({
 	plugins: [
 		react(),
 		dts({
-			tsconfigPath: 'tsconfig.lib.json',
+			tsconfigPath: 'tsconfig.json',
 			include: 'src/**/*.{ts,tsx}',
 			exclude: ['src/**/*.(story|stories).{ts,tsx}', 'src/stories/**/*'],
 		}),
@@ -19,7 +19,6 @@ export default defineConfig({
 		},
 	},
 	build: {
-		target: 'esnext',
 		sourcemap: 'inline',
 		minify: false,
 		copyPublicDir: false,
