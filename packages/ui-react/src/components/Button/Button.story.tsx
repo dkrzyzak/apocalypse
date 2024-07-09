@@ -19,15 +19,29 @@ export const Default = {
 	},
 } satisfies Story;
 
-export function Primary({ ...defaultProps }: ButtonProps) {
-	return (
-		<div className='flex gap-2'>
-			<Button {...defaultProps} color='primary' variant='fill'>Click me</Button>
-			<Button {...defaultProps} color='primary' variant='light'>Click me</Button>
-			<Button {...defaultProps} color='primary' variant='outline'>Click me</Button>
-		</div>
-	)
-}
+const PaletteStory = (palette: ButtonPalette) => {
+	const comp = ({ ...defaultProps }: ButtonProps) => {
+		return (
+			<div className='flex gap-2'>
+				<Button {...defaultProps} color={palette} variant='fill'>
+					Click me
+				</Button>
+				<Button {...defaultProps} color={palette} variant='light'>
+					Click me
+				</Button>
+				<Button {...defaultProps} color={palette} variant='outline'>
+					Click me
+				</Button>
+			</div>
+		);
+	};
+	comp.story = { name: `palette/${palette}` };
+	return comp;
+};
+
+export const Primary = PaletteStory('primary');
+export const Warning = PaletteStory('warning');
+export const Neutral = PaletteStory('neutral');
 
 export const FullWidth = {
 	args: {
@@ -36,8 +50,6 @@ export const FullWidth = {
 		fullWidth: true,
 	},
 } satisfies Story;
-
-
 
 export function Sizes({
 	color,
@@ -49,11 +61,21 @@ export function Sizes({
 	return (
 		<>
 			<div className='flex gap-4 flex-wrap'>
-				<Button color={color} variant={variant} size='xs'>Button xs</Button>
-				<Button color={color} variant={variant} size='sm'>Button sm</Button>
-				<Button color={color} variant={variant} size='md'>Button md</Button>
-				<Button color={color} variant={variant} size='lg'>Button lg</Button>
-				<Button color={color} variant={variant} size='xl'>Button xl</Button>
+				<Button color={color} variant={variant} size='xs'>
+					Button xs
+				</Button>
+				<Button color={color} variant={variant} size='sm'>
+					Button sm
+				</Button>
+				<Button color={color} variant={variant} size='md'>
+					Button md
+				</Button>
+				<Button color={color} variant={variant} size='lg'>
+					Button lg
+				</Button>
+				<Button color={color} variant={variant} size='xl'>
+					Button xl
+				</Button>
 			</div>
 		</>
 	);
