@@ -1,3 +1,3 @@
-/* NO BASE - don't pollute output css file */
+/* NO @tailwind base - include only must-have css */
 @tailwind components;
 @tailwind utilities;
