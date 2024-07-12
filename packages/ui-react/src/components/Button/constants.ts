@@ -27,6 +27,7 @@ export interface ButtonProps {
 	isLoading?: boolean;
 
 	fullWidth?: boolean;
+	clickTransition?: boolean;
 	onClick?: MouseEventHandler<HTMLButtonElement>;
 }
 
@@ -42,9 +43,7 @@ export const buttonSizeStyles: Record<Size, string> = {
 
 export const buttonDisabledStyles = 'disabled:opacity-50 disabled:cursor-default disabled:active:scale-100';
 
-export const buttonLoadingStyles = 'cursor-progress active:scale-100';
-
-const outlineBaseStyles = 'border-2 hover:bg-white/[5%] ';
+const outlineBaseStyles = 'hover:bg-white/[5%] '; // IMPORTANT: don't remove the space at the end
 
 export const buttonColorStyles: Record<ButtonPalette, Record<ButtonVariant, string>> = {
 	primary: {
@@ -53,19 +52,19 @@ export const buttonColorStyles: Record<ButtonPalette, Record<ButtonVariant, stri
 		outline: outlineBaseStyles + 'border-blue-400 text-blue-400',
 	},
 	secondary: {
-		fill: 'bg-secondary text-white',
-		light: 'bg-secondary-light text-secondary',
-		outline: outlineBaseStyles + 'border-secondary text-secondary',
+		fill: 'bg-pink-600 text-white hover:bg-pink-700',
+		light: 'bg-pink-500/20 text-pink-300 hover:bg-pink-500/30',
+		outline: outlineBaseStyles + 'border-pink-400 text-pink-400',
 	},
 	neutral: {
-		fill: 'bg-neutral text-black',
-		light: 'bg-neutral-light text-neutral',
+		fill: 'bg-slate-300 text-black hover:bg-slate-200',
+		light: 'bg-slate-500 text-slate-200 hover:bg-slate-500/80',
 		outline: outlineBaseStyles + 'border-neutral-200 text-neutral-100',
 	},
 	success: {
-		fill: 'bg-success text-white',
-		light: 'bg-success-light text-success',
-		outline: outlineBaseStyles + 'border-success text-success',
+		fill: 'bg-green-600 text-white hover:bg-green-700',
+		light: 'bg-green-500/20 text-green-300 hover:bg-green-500/30',
+		outline: outlineBaseStyles + 'border-green-400 text-green-400',
 	},
 	info: {
 		fill: 'bg-info text-white',
@@ -78,8 +77,8 @@ export const buttonColorStyles: Record<ButtonPalette, Record<ButtonVariant, stri
 		outline: outlineBaseStyles + 'border-warn-600 text-warn-600',
 	},
 	danger: {
-		fill: 'bg-danger text-white',
-		light: 'bg-danger-light text-danger',
-		outline: outlineBaseStyles + 'border-danger text-danger',
+		fill: 'bg-red-600 text-white hover:bg-red-700',
+		light: 'bg-red-500/20 text-red-300 hover:bg-red-500/30',
+		outline: outlineBaseStyles + 'border-red-500 text-red-500',
 	},
 };

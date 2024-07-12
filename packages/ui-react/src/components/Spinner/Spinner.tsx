@@ -1,15 +1,19 @@
 import { twMerge } from 'tailwind-merge';
 import { SpinnerProps } from './constants';
 
-function Spinner({ className, colorClassName, backgroundClassName }: SpinnerProps) {
+function Spinner({ className, size, colorClassName, backgroundClassName }: SpinnerProps) {
 	return (
 		<div role='status' className={twMerge('flex items-center', className)}>
 			<svg
 				aria-hidden='true'
+				style={{
+					width: size || '2rem',
+					height: size || '2rem',
+				}}
 				className={twMerge(
-					'w-8 h-8 animate-spin text-gray-300 fill-blue-600',
-					colorClassName,
-					backgroundClassName,
+					'animate-spin',
+					colorClassName || 'fill-blue-600',
+					backgroundClassName || 'text-gray-300'
 				)}
 				viewBox='0 0 100 101'
 				fill='none'

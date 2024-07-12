@@ -1,6 +1,6 @@
 import { Meta, StoryObj } from '@storybook/react';
 import Button from './Button';
-import { ButtonPalette, ButtonProps, ButtonVariant } from './constants';
+import { ButtonPalette, ButtonProps } from './constants';
 
 type Story = StoryObj<typeof Button>;
 
@@ -40,8 +40,11 @@ const PaletteStory = (palette: ButtonPalette) => {
 };
 
 export const Primary = PaletteStory('primary');
-export const Warning = PaletteStory('warning');
+export const Secondary = PaletteStory('secondary');
 export const Neutral = PaletteStory('neutral');
+export const Success = PaletteStory('success');
+export const Warning = PaletteStory('warning');
+export const Danger = PaletteStory('danger');
 
 export const FullWidth = {
 	args: {
@@ -51,32 +54,24 @@ export const FullWidth = {
 	},
 } satisfies Story;
 
-export function Sizes({
-	color,
-	variant,
-}: {
-	color: ButtonPalette;
-	variant: ButtonVariant;
-}) {
+export function Sizes({ ...defaultProps }: ButtonProps) {
 	return (
-		<>
-			<div className='flex gap-4 flex-wrap'>
-				<Button color={color} variant={variant} size='xs'>
-					Button xs
-				</Button>
-				<Button color={color} variant={variant} size='sm'>
-					Button sm
-				</Button>
-				<Button color={color} variant={variant} size='md'>
-					Button md
-				</Button>
-				<Button color={color} variant={variant} size='lg'>
-					Button lg
-				</Button>
-				<Button color={color} variant={variant} size='xl'>
-					Button xl
-				</Button>
-			</div>
-		</>
+		<div className='flex gap-4 flex-wrap'>
+			<Button {...defaultProps} size='xs'>
+				Button xs
+			</Button>
+			<Button {...defaultProps} size='sm'>
+				Button sm
+			</Button>
+			<Button {...defaultProps} size='md'>
+				Button md
+			</Button>
+			<Button {...defaultProps} size='lg'>
+				Button lg
+			</Button>
+			<Button {...defaultProps} size='xl'>
+				Button xl
+			</Button>
+		</div>
 	);
 }

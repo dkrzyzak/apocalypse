@@ -1,9 +1,8 @@
 'use client';
-import Spinner from '../Spinner/Spinner';
+import ButtonSpinner from './ButtonSpinner';
 import {
 	buttonColorStyles,
 	buttonDisabledStyles,
-	buttonLoadingStyles,
 	ButtonProps,
 	buttonSizeStyles,
 } from './constants';
@@ -19,6 +18,7 @@ function Button({
 	leftSection,
 	rightSection,
 	size = 'md',
+	clickTransition = true,
 	onClick,
 }: ButtonProps) {
 	return (
@@ -26,10 +26,10 @@ function Button({
 			disabled={isDisabled}
 			aria-disabled={isDisabled}
 			className={twMerge(
-				'rounded-md duration-200 transition-ct flex justify-center items-center relative',
-				fullWidth && 'w-full active:scale-[99%]',
-				!fullWidth && 'active:scale-105',
-				isLoading && buttonLoadingStyles,
+				'rounded-md duration-200 transition-ct flex justify-center items-center relative border-2 border-transparent shadow-lg',
+				fullWidth && 'w-full',
+				clickTransition && !isLoading && (fullWidth ? 'active:scale-[99%]' : 'active:scale-105'),
+				isLoading && 'cursor-progress',
 				isDisabled && buttonDisabledStyles,
 				buttonSizeStyles[size],
 				buttonColorStyles[color][variant]
@@ -37,10 +37,10 @@ function Button({
 			onClick={isDisabled || isLoading ? undefined : onClick}
 		>
 			<>
-				{isLoading && <Spinner className='absolute animate-rollDown' />}
+				{isLoading && <ButtonSpinner size={size} />}
 				<span
 					className={twMerge(
-						'inline-flex items-center gap-2 transition-ot',
+						'inline-flex items-center gap-2 duration-300 transition-ot',
 						isLoading && 'opacity-0 translate-y-2'
 					)}
 				>
