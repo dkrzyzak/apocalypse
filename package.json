@@ -3,7 +3,6 @@
   "version": "0.0.1",
   "description": "",
   "scripts": {
-    "test": "exit 1",
     "story": "cd packages/ui-react && pnpm story"
   },
   "keywords": [],
