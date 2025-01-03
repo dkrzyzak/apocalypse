@@ -1,18 +1,21 @@
 {
-	"name": "@apocalypse/eslint",
-	"private": true,
-	"version": "0.1.0",
+	"name": "@daniszczak/eslint",
+	"description": "Hub-like package collecting ESLint plugins and configs to use in other projects",
+	"author": "dkrzyzak",
+	"license": "MIT",
+	"version": "0.1.1",
 	"sideEffects": false,
 	"type": "module",
 	"main": "./dist/index.js",
 	"types": "./dist/index.d.ts",
 	"scripts": {
-		"build": "vite build"
+		"build": "rimraf dist && vite build",
+		"publish": "pnpm publish --access public",
+		"release": "pnpm build && pnpm publish"
 	},
 	"devDependencies": {
 		"@eslint/js": "^9.17.0",
 		"@types/eslint-plugin-jsx-a11y": "^6.10.0",
-		"@types/eslint__eslintrc": "^2.1.2",
 		"@types/node": "^22.10.5",
 		"eslint": "^9.17.0",
 		"eslint-import-resolver-typescript": "^3.7.0",
@@ -22,6 +25,7 @@
 		"eslint-plugin-react-hooks": "^5.1.0",
 		"globals": "^15.14.0",
 		"jiti": "^2.4.2",
+		"rimraf": "^6.0.1",
 		"typescript": "^5.7.2",
 		"typescript-eslint": "^8.19.0",
 		"vite": "^6.0.7",
