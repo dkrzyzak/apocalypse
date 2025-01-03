@@ -1,16 +1,15 @@
 import globals from 'globals';
 import type { Linter } from 'eslint';
 import js from '@eslint/js';
-// @ts-ignore: this plugin has no type definitions
-import pluginImport from 'eslint-plugin-import';
 import tseslint from 'typescript-eslint';
+// import pluginImport from './patched-plugin-import';
 
 // COMMON = JS + TS + IMPORTS
 
 const config: Linter.Config[] = [
 	js.configs.recommended,
-    pluginImport.flatConfigs.recommended,
-    ...tseslint.configs.recommended as Linter.Config[],
+	// pluginImport.flatConfigs.recommended,
+	...(tseslint.configs.recommended as Linter.Config[]),
 	{
 		files: ['**/*.{ts,tsx}'],
 		languageOptions: {

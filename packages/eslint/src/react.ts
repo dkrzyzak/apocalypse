@@ -1,20 +1,19 @@
-import { fixupConfigRules } from '@eslint/compat';
-import { FlatCompat } from '@eslint/eslintrc';
 import pluginReact from 'eslint-plugin-react';
+import pluginReactHooks from 'eslint-plugin-react-hooks';
 import pluginJsxA11Y from 'eslint-plugin-jsx-a11y';
 import { Linter } from 'eslint';
 
 const reactFlatConfig = pluginReact.configs.flat!;
 
-const compat = new FlatCompat();
-
 const config: Linter.Config[] = [
-	pluginJsxA11Y.flatConfigs.recommended,
-	...fixupConfigRules(compat.extends('plugin:react-hooks/recommended')),
 	{
 		files: ['**/*.{ts,tsx}'],
 
-		plugins: { react: pluginReact },
+		plugins: {
+			react: pluginReact,
+			'react-hooks': pluginReactHooks,
+			'jsx-a11y': pluginJsxA11Y,
+		},
 
 		languageOptions: {
 			parserOptions: {
@@ -27,7 +26,7 @@ const config: Linter.Config[] = [
 
 		settings: {
 			react: {
-				version: 'detect',
+				version: '19',
 			},
 			formComponents: ['Form'],
 			linkComponents: [
@@ -43,8 +42,12 @@ const config: Linter.Config[] = [
 		},
 
 		rules: {
+			...pluginJsxA11Y.flatConfigs.recommended.rules,
 			...reactFlatConfig.recommended.rules,
 			...reactFlatConfig['jsx-runtime'].rules,
+			...pluginReactHooks.configs.recommended.rules,
+
+			// custom overrides
 			'react/prop-types': 'off',
 		},
 	},

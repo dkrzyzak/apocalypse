@@ -1,2 +1,2 @@
-export { default as commonConfig } from './common.js';
-export { default as reactConfig } from './react.js';
+export { default as commonConfig } from './common';
+export { default as reactConfig } from './react';
