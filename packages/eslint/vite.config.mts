@@ -8,10 +8,13 @@ export default defineConfig({
 		emptyOutDir: true,
 		outDir: 'dist',
 		lib: {
-			entry: resolve(__dirname, 'src/index.ts'),
-			name: '@danpack/eslint',
+			entry: {
+				index: resolve(__dirname, 'src/index.ts'),
+				common: resolve(__dirname, 'src/common.ts'),
+				react: resolve(__dirname, 'src/react.ts'),
+			},
 			formats: ['es'],
-			fileName: 'index',
+			fileName: (_format, entryName) => `${entryName}.js`,
 		},
 		terserOptions: {
 			mangle: false,
@@ -19,18 +22,12 @@ export default defineConfig({
 		minify: 'terser',
 		rollupOptions: {
 			external: [...builtinModules, /^node:.*/, 'eslint', 'typescript-eslint'],
-			
-			// output: {
-				// preserveModules: true,
-				// preserveModulesRoot: 'src',
-				// chunkFileNames: `[name].js`,
-			// },
 		},
 	},
 	plugins: [
 		dts({
-			tsconfigPath: './tsconfig.json',
-			rollupTypes: true, // Bundles all `.d.ts` files into one
+			include: ['src/index.ts', 'src/common.ts', 'src/react.ts'],
+			entryRoot: 'src',
 		}),
 	],
 });

@@ -12,6 +12,20 @@
 	"type": "module",
 	"main": "./dist/index.js",
 	"types": "./dist/index.d.ts",
+	"exports": {
+		".": {
+			"import": "./dist/index.js",
+			"types": "./dist/index.d.ts"
+		},
+		"./common": {
+			"import": "./dist/common.js",
+			"types": "./dist/common.d.ts"
+		},
+		"./react": {
+			"import": "./dist/react.js",
+			"types": "./dist/react.d.ts"
+		}
+	},
 	"scripts": {
 		"build": "rimraf dist && vite build",
 		"release": "pnpm build && pnpm publish --access public"
