@@ -1,4 +1,4 @@
-# @daniszczak/eslint
+# @danpack/eslint
 
 Hub-like package collecting ESLint plugins and configs to use in other projects, without the need to individually install 10 thousand plugins alongside the main `eslint` package.
 
@@ -7,9 +7,9 @@ Hub-like package collecting ESLint plugins and configs to use in other projects,
 Main package:
 
 ```
-npm install -D @daniszczak/eslint
+npm install -D @danpack/eslint
 
-pnpm add -D @daniszczak/eslint
+pnpm add -D @danpack/eslint
 ```
 
 Peer deps:
@@ -25,7 +25,7 @@ Why `typescript-eslint` is currently required as a peerDep, I explained in the [
 ```ts
 // eslint.config.mjs
 
-import { commonConfig, reactConfig } from '@daniszczak/eslint';
+import { commonConfig, reactConfig } from '@danpack/eslint';
 
 export default [
 	...commonConfig,

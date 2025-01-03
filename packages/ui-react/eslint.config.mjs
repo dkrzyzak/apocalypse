@@ -1,4 +1,4 @@
-import { commonConfig, reactConfig } from '@daniszczak/eslint';
+import { commonConfig, reactConfig } from '@danpack/eslint';
 import pluginReactRefresh from 'eslint-plugin-react-refresh';
 import pluginStorybook from 'eslint-plugin-storybook';
 

@@ -21,6 +21,6 @@
     "typescript": "^5.2.2"
   },
   "dependencies": {
-    "@apocalypse/ui-react": "workspace:^"
+    "@danpack/ui-react": "workspace:^"
   }
 }

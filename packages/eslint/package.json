@@ -1,6 +1,10 @@
 {
-	"name": "@daniszczak/eslint",
+	"name": "@danpack/eslint",
 	"description": "Hub-like package collecting ESLint plugins and configs to use in other projects",
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/dkrzyzak/danpack/tree/master/packages/eslint"
+	},
 	"author": "dkrzyzak",
 	"license": "MIT",
 	"version": "0.1.1",

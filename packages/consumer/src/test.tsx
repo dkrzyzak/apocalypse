@@ -1,4 +1,4 @@
-import { Spinner } from '@apocalypse/ui-react';
+import { Spinner } from '@danpack/ui-react';
 
 function Example() {
 	return (

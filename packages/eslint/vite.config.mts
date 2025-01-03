@@ -9,7 +9,7 @@ export default defineConfig({
 		outDir: 'dist',
 		lib: {
 			entry: resolve(__dirname, 'src/index.ts'),
-			name: '@daniszczak/eslint',
+			name: '@danpack/eslint',
 			formats: ['es'],
 			fileName: 'index',
 		},
@@ -31,9 +31,6 @@ export default defineConfig({
 		dts({
 			tsconfigPath: './tsconfig.json',
 			rollupTypes: true, // Bundles all `.d.ts` files into one
-			afterRollup(result) {
-				console.log(result.succeeded);
-			}
 		}),
 	],
 });

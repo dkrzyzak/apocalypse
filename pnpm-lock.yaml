@@ -10,7 +10,7 @@ importers:
 
   packages/consumer:
     dependencies:
-      '@apocalypse/ui-react':
+      '@danpack/ui-react':
         specifier: workspace:^
         version: link:../ui-react
     devDependencies:
@@ -104,7 +104,7 @@ importers:
       '@chromatic-com/storybook':
         specifier: ^3.2.3
         version: 3.2.3(react@19.0.0)(storybook@8.4.7(prettier@3.4.2))
-      '@daniszczak/eslint':
+      '@danpack/eslint':
         specifier: workspace:^
         version: link:../eslint
       '@storybook/addon-essentials':
