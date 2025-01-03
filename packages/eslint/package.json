@@ -7,7 +7,7 @@
 	},
 	"author": "dkrzyzak",
 	"license": "MIT",
-	"version": "0.1.1",
+	"version": "0.1.2",
 	"sideEffects": false,
 	"type": "module",
 	"main": "./dist/index.js",
@@ -28,6 +28,7 @@
 	},
 	"scripts": {
 		"build": "rimraf dist && vite build",
+		"bump": "pnpm version patch",
 		"release": "pnpm build && pnpm publish --access public"
 	},
 	"devDependencies": {
